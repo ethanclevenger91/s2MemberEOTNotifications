@@ -1,0 +1,70 @@
+.form-table {
+  th {
+    white-space: nowrap;
+  }
+}
+.eotnot_reminders_table {
+  margin-bottom:2em;
+  width:100%;
+  font-size:14px;
+  border-collapse:collapse;
+  th {
+    vertical-align: top;
+    text-align: left;
+    padding: 20px 10px 20px 0;
+    width: 200px;
+    line-height: 1.3;
+    font-weight: 600;
+  }
+  td {
+    margin-bottom: 9px;
+    padding: 15px 10px;
+    line-height: 1.3;
+    vertical-align: middle;
+  }
+  > tbody > tr {
+    &:nth-child(1) {
+      display:none;
+    }
+    &:nth-child(4n+2), &:nth-child(4n+3) {
+      background:white;
+    }
+  }
+}
+.eotnot-notification-content {
+  > td, table:nth-child(2) {
+    width:100%;
+  }
+  &:not(.eotnot-notification-content--new) {
+    display:none;
+  }
+  input[type="text"] {
+    width:100%;
+  }
+}
+.eotnot-notification-title {
+  margin:0;
+  .dashicons-arrow-right-alt2 {
+    transition:transform .3s;
+  }
+  &.active {
+    .dashicons-arrow-right-alt2 {
+      transform:rotate(90deg);
+    }
+  }
+}
+.eotnot-sublabel {
+  display:block;
+  font-size:12px;
+}
+#eotnot-settings-form {
+  .wp-editor-wrap {
+    margin-top:12px;
+  }
+}
+button.button.eotnot-add-another {
+  margin-bottom:2em;
+}
+.eotnot_instruction {
+  font-size:12px;
+}

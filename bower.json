@@ -1,0 +1,26 @@
+{
+  "name": "s2member-end-of-term-notifications",
+  "version": "1.0.0",
+  "homepage": "https://github.com/ethanclevenger91/s2MemberEOTNotifications",
+  "authors": [
+    "Ethan <ethan@webspecdesign.com>"
+  ],
+  "description": "Dependencies for s2Member End-of-Term Notifications",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "main": [
+    "src/js/scripts.js",
+    "src/css/styles.scss"
+  ],
+  "dependencies": {
+    "parsleyjs": "~2.1.3"
+  }
+}
