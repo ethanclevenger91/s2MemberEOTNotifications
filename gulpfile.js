@@ -4,7 +4,6 @@ var gulp = require('gulp');
 // Plugins
 var autoprefix = require('gulp-autoprefixer');
 var bowerFiles = require('main-bower-files');
-var browserSync = require('browser-sync');
 var concat = require('gulp-concat');
 var cache = require('gulp-cache');
 var del = require('del');
@@ -112,28 +111,9 @@ gulp.task('watch', function() {
 	gulp.watch(paths.styles, ['styles']);
 });
 
-// Browser Sync - autoreload the browser
-// Additional Settings: http://www.browsersync.io/docs/options/
-gulp.task('browser-sync', function () {
-	var files = [
-		'**/*.html',
-		'**/*.php',
-		'dist/css/styles.css',
-		'dist/js/scripts.js',
-	];
-	browserSync.init(files, {
-		//server: {
-			//baseDir: './'
-		//},
-		proxy: 'http://10.10.10.126/spanish-cuentos', // Proxy for local dev sites
-		// port: 5555, // Sets the port in which to serve the site
-		// open: false // Stops BS from opening a new browser window
-	});
-});
-
 gulp.task('clean', function(cb) {
 	//return gulp.src('build').pipe(clean());
-	del(['build'], cb);
+	del(['dist']).then(cb());
 });
 
 gulp.task('clear-cache', function() {
@@ -142,5 +122,9 @@ gulp.task('clear-cache', function() {
 
 // Default Task
 gulp.task('default', function(cb) {
-	runSequence('css-to-scss', 'clean', 'clear-cache', 'scripts', 'styles', 'browser-sync', 'watch', cb);
+	runSequence('css-to-scss', 'clean', 'clear-cache', 'scripts', 'styles', 'watch', cb);
 });
+
+gulp.task('build', function(cb) {
+	runSequence('css-to-scss', 'clean', 'clear-cache', 'build-scripts', 'styles', cb);
+})
